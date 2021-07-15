@@ -9,7 +9,7 @@ const CarritoCompras = ( props ) => {
         <Fragment>
             <Header />
             <Container id="productos-pagina">
-                <TablaCompras />
+                
             </Container>
             <Footer />
         </Fragment>
