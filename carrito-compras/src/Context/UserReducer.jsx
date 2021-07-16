@@ -93,7 +93,7 @@ export const productoReducer = (state, action) => {
       case "cancelar":
         return {
           itemCarrito: [],
-          comprar: true,
+          comprar: false,
           contadorItem: 0,
           precioTotal: 0.0
         }   

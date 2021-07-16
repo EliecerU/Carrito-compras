@@ -1,4 +1,5 @@
 import { createContext, useReducer } from "react";
+import { productoReducer } from './UserReducer';
 
 export const CarritoContext = createContext();
 
@@ -6,12 +7,12 @@ const estadoInicial = {
     itemCarrito: [],
     contadorItem: 0,
     precioTotal: 0.0,
-    comprar: false
+    comprar_: false
 } 
 
 const CarritoContextProvider = ({ children }) =>{
 
-    const [state, dispatch] = useReducer(useReducer, estadoInicial);
+    const [state, dispatch] = useReducer(productoReducer, estadoInicial);
 
     const incrementar = ( payload ) => {
         dispatch({ type: "aumentar", payload});
@@ -21,7 +22,7 @@ const CarritoContextProvider = ({ children }) =>{
         dispatch({ type: "decrementar", payload});
     }
 
-    const aregarProducto = ( payload ) => {
+    const agregarProducto = ( payload ) => {
         dispatch({ type: "agregar-producto", payload});
     } 
 
@@ -42,7 +43,7 @@ const CarritoContextProvider = ({ children }) =>{
         comprar,
         cancelarCompra,
         quitarProducto,
-        aregarProducto,
+        agregarProducto,
         decrementar,
         ...state
     }

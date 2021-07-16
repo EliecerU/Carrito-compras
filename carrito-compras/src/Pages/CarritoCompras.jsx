@@ -5,11 +5,12 @@ import { Container } from 'react-bootstrap';
 import Footer from '../Components/Footer/Footer';
 
 const CarritoCompras = ( props ) => {
+
     return(
         <Fragment>
             <Header />
             <Container id="productos-pagina">
-                
+                <TablaCompras />
             </Container>
             <Footer />
         </Fragment>

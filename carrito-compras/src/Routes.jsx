@@ -10,6 +10,7 @@ export const Routes = () => {
       <Route exact path="/" component={Inicio} />
       <Route exact path="/carrito" component={CarritoCompras} />
       <Route exact path="/productos" component={ProductosPagina} />
+      <Route path="*"/>
     </Switch>
   );
 };

@@ -1,7 +1,18 @@
-import { Table, Container, Col, Button } from "react-bootstrap";
-import React from "react";
+import { Table, Container, Col } from "react-bootstrap";
+import React, { useContext } from "react";
+import { CarritoContext } from "../../Context/UserContext";
+import Compras from "../Compras/Compras";
 
-export const TablaCompras = (props) => {
+export const TablaCompras = () => {
+  const {
+    itemCarrito,
+    precioTotal,
+    contadorItem,
+    comprar_,
+    cancelarCompra,
+    comprar,
+  } = useContext(CarritoContext);
+
   return (
     <Container>
       <Col className="m-5">
@@ -9,26 +20,24 @@ export const TablaCompras = (props) => {
       </Col>
       <Col className="m-5">
         <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Producto</th>
-              <th>Precio</th>
-              <th>Opciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
+          {itemCarrito.length > 0 ? (
+            <thead>
               <tr>
-                <td>{}</td>
-                <td>{}</td>
-                <td>{}</td>
-                <td>
-                  <Button variant="primary">Primary</Button>
-                  <Button variant="primary">Primary</Button>
-                </td>
+                <th>#</th>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Opciones</th>
               </tr>
-            }
+            </thead>
+          ) : (
+            <h3></h3>
+          )}
+          <tbody>
+            {itemCarrito.length > 0 ? (
+              <Compras producto={itemCarrito} />
+            ) : (
+              <h4>No hay productos en el carrito</h4>
+            )}
           </tbody>
         </Table>
       </Col>
