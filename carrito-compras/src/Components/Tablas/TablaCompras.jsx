@@ -3,14 +3,14 @@ import React, { useContext } from "react";
 import { CarritoContext } from "../../Context/UserContext";
 import Compras from "../Compras/Compras";
 
-export const TablaCompras = () => {
+export const TablaCompras = ( props ) => {
   const {
     itemCarrito,
     precioTotal,
     contadorItem,
     comprar_,
     cancelarCompra,
-    comprar,
+    comprar
   } = useContext(CarritoContext);
 
   return (
@@ -34,7 +34,7 @@ export const TablaCompras = () => {
           )}
           <tbody>
             {itemCarrito.length > 0 ? (
-              <Compras producto={itemCarrito} />
+              <Compras />
             ) : (
               <h4>No hay productos en el carrito</h4>
             )}
